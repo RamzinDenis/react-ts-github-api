@@ -14,7 +14,7 @@ export default (state = initialState, action: GitCompanyActionUnion): GitCompany
       return { ...state, companyName: action.companyName, isLoading: true };
 
     case GitCompanyActionTypes.FETCH_REPOS_SUCCESS:
-      return { ...state, items: action.repos, isLoading: false };
+      return { ...state, items: action.repos, isLoading: false, error: null };
 
     case GitCompanyActionTypes.FETCH_REPOS_FAILURE:
       return { ...state, isLoading: false, error: action.error };
