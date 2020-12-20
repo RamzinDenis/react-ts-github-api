@@ -1,9 +1,13 @@
-# Project info
+## Project info
 
 Search for any company repositories on github and get brief information about
 Also you get detail information about certain repository by clicking on selected repository table-row
 
-### Technical details
+## Working version
+
+https://react-ts-github-api.herokuapp.com/
+
+## Technical details
 
 This is React-Typescript project, with React-Saga to handle side-effects.
 There is some basic eslint configuration with sorted imports and .editorconfig
