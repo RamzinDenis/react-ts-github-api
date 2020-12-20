@@ -23,7 +23,7 @@ You need to configure .env file by setting:
 Then run
 
 ```
-    npm run install
+    npm install
     npm run start
 ```
 
