@@ -11,4 +11,5 @@ export interface GitRepoItem {
   watchers_count: number;
   git_url: string;
   name: string;
+  id: number;
 }

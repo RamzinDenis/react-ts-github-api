@@ -1,0 +1,21 @@
+.list {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  margin-top: 35px;
+}
+
+.listItem {
+  max-height: 151px;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+.link {
+  color: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+}
