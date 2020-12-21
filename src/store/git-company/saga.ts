@@ -2,8 +2,8 @@ import { SagaIterator } from 'redux-saga';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import { errorDescription } from '../../fixtures/errorDescription';
-import { api } from '../../pages/services/api';
-import notificate from '../../pages/services/notifications';
+import { api } from '../../services/api';
+import notificate from '../../services/notifications';
 import { fetchReposFailure, fetchReposSuccess } from './actions';
 import {
   FetchReposAction,

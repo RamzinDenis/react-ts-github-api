@@ -6,7 +6,7 @@ enum AlignTypes {
 
 const repositoryColumnsData = [
   {
-    title: 'Name',
+    title: 'Name of the repository',
     key: 'name',
   },
   {
