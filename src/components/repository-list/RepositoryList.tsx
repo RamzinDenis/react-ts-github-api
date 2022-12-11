@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Table } from 'antd';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { repositoryTableColumns } from '../../fixtures/repositoryTableColumns';
 import {
@@ -17,12 +17,12 @@ import styles from './repository-list.module.scss';
 export type HocProps = ReturnType<typeof mapStateToProps>;
 
 const RepositoryList: React.FC<HocProps> = ({ repositories, isLoading, companyName }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleRowClick = (record: GitRepoItem) => {
     return {
       onClick: () => {
-        history.push(`${companyName}/${record.id}`);
+        navigate(`${companyName}/${record.id}`);
       },
     };
   };

@@ -1,6 +1,12 @@
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 .layout {
   background: linear-gradient(to right, #4e54c8, #8f94fb);
   min-height: 100vh;
+  overflow: hidden;
   width: 100%;
 }
 

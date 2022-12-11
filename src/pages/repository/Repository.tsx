@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import Card from 'antd/lib/card';
 import Layout from 'antd/lib/layout/layout';
@@ -13,16 +13,11 @@ import { RootState } from '../../store/rootReducer';
 import layoutStyles from '../home/home.module.scss';
 import styles from './repository.module.scss';
 
-interface RepositoryPageParams {
-  repositoryId: string;
-  companyName: string;
-}
-
-const Repository: FC = () => {
-  const { repositoryId, companyName } = useParams<RepositoryPageParams>();
+export const Repository: FC = () => {
+  const { repositoryId, companyName } = useParams();
 
   const repositoryData = useSelector((state: RootState) =>
-    getRepositoryByIdSelector(state, repositoryId)
+    getRepositoryByIdSelector(state, String(repositoryId))
   );
 
   return (
@@ -46,8 +41,8 @@ const Repository: FC = () => {
               xxl: 3,
             }}
             dataSource={Object.entries(repositoryData)}
-            renderItem={([name, content]) => (
-              <List.Item className={styles.listItem}>
+            renderItem={([name, content], index) => (
+              <List.Item className={styles.listItem} key={`${name}${index}`}>
                 <Card title={name}>{renderRepositoryContent(content)}</Card>
               </List.Item>
             )}
@@ -60,5 +55,3 @@ const Repository: FC = () => {
     </Layout>
   );
 };
-
-export default Repository;

@@ -8,6 +8,7 @@ const initialState: GitCompanyState = {
   isLoading: false,
 };
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 export default (state = initialState, action: GitCompanyActionUnion): GitCompanyState => {
   switch (action.type) {
     case GitCompanyActionTypes.FETCH_REPOS:

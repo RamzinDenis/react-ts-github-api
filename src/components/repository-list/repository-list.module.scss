@@ -3,6 +3,13 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
+  :global .ant-pagination .ant-pagination-item a {
+    color: white;
+  }
+  :global .ant-pagination .ant-pagination-item-active a {
+    color: black;
+  }
+
   tr {
     cursor: pointer;
   }

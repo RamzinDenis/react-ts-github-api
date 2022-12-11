@@ -1,9 +1,9 @@
 import { SagaIterator } from 'redux-saga';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
-import { errorDescription } from '../../fixtures/errorDescription';
 import { api } from '../../services/api';
-import notificate from '../../services/notifications';
+import { notificate } from '../../services/notifications';
+import { ErrorHandler } from '../../utils/errorHandler';
 import { fetchReposFailure, fetchReposSuccess } from './actions';
 import {
   FetchReposAction,
@@ -18,9 +18,14 @@ function* fetchRepoWorker(action: FetchReposAction): SagaIterator {
     const response: { data: GitRepoItem[] } = yield call(api.fetchRepos, action.companyName);
     yield put<FetchReposSuccessAction>(fetchReposSuccess(response.data));
   } catch (err) {
-    const errorString = err.toString();
+    const errorString = ErrorHandler.toString(err);
     yield put<FetchReposFailuresAction>(fetchReposFailure(errorString));
-    notificate({ type: 'error', message: errorString, description: errorDescription[errorString] });
+
+    notificate({
+      type: 'error',
+      message: errorString,
+      description: ErrorHandler.getDescriptionByError(errorString),
+    });
   }
 }
 

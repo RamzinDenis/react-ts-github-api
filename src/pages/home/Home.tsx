@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FC, ReactElement, useCallback } from 'react';
+import { ChangeEvent, FC, ReactElement, useCallback } from 'react';
 
-import Search from 'antd/lib/input/Search';
-import Layout from 'antd/lib/layout/layout';
-import Title from 'antd/lib/typography/Title';
+import { Layout } from 'antd';
+import Search from 'antd/es/input/Search';
+import Title from 'antd/es/typography/Title';
 import clsx from 'clsx';
 import debounce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
@@ -14,11 +14,10 @@ import styles from './home.module.scss';
 const Home: FC = (): ReactElement => {
   const dispatch = useDispatch();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchApi = useCallback(
     debounce((value: string) => {
       dispatch(fetchRepos(value));
-    }, 1000),
+    }, 1500),
     []
   );
 
@@ -45,6 +44,7 @@ const Home: FC = (): ReactElement => {
           onChange={handleChange}
           onSearch={onSearch}
         />
+
         <RepositoryList />
       </main>
     </Layout>
